@@ -24,6 +24,7 @@ export default function HomeScreen() {
         />
         <SliderHorizonta isSeries title="series mas recientes" page={1} />
         <SliderHorizonta title="Películas animadas" id={2} page={1} />
+        <BannerAds />
         <SliderHorizonta title="Películas de acción" id={1} page={1} />
         <SliderHorizonta title="Películas de romance" id={15} page={1} />
         <SliderHorizonta title="Películas de comedia" id={7} page={2} />

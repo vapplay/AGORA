@@ -12,6 +12,6 @@ export const CustomCoors = {
   /// custom coors
 
   Violet: "hsl(270deg 45% 33%)",
-  BLue: "#5bb0f7",
+  BLue: "#FFBF00",
   green: "hsl(152deg 38% 42%)",
 };
