@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "544174110050",
+    "project_id": "agora-c7a1c",
+    "storage_bucket": "agora-c7a1c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:544174110050:android:691c4834446b9c7f27283b",
+        "android_client_info": {
+          "package_name": "com.pelis.agora"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGqFU7lkRqPq3F6oIGhNP7qq1uewvjqR8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

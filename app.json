@@ -1,0 +1,46 @@
+{
+  "expo": {
+    "name": "Agora",
+    "slug": "agora",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/img/agora/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/img/agora/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#01101f"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "android": {
+      "googleServicesFile": "./google-services.json",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/img/agora/icon.png",
+        "backgroundColor": "#01101f"
+      },
+      "versionCode": 1,
+      "package": "com.pelis.agora"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "ios": {},
+    "plugins": [
+      "expo-font"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "531ce599-20e3-4d2d-b204-e47d8f857c42"
+      }
+    },
+    "owner": "vapplay"
+  },
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-7618565061438600~3682858393"
+  }
+}
