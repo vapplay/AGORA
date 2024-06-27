@@ -16,6 +16,7 @@ import { navigation } from "../../../types/types";
 import { useAnuncios } from "../../../hooks/adds/useAds";
 import FastImage from "react-native-fast-image";
 
+
 const colors = ["tomato", "thistle", "skyblue", "teal"];
 
 const gradientCoors = ["transparent", "#01030a"];
@@ -29,6 +30,18 @@ let getPupulariti = gql`
     }
   }
 `;
+
+
+
+function decrypt(encryptedMessage: string) {
+  if (encryptedMessage) {
+    return encryptedMessage
+      ?.split("") // Convertir el mensaje en un array de caracteres
+      ?.map((char) => String.fromCharCode(char.charCodeAt(0) - 3)) // Deshacer el desplazamiento de 3 en ASCII
+      ?.join(""); // Convertir de nuevo a cadena
+  }
+  return ""
+}
 
 const Carrucel = memo(() => {
   let { data, loading } = useQuery(getPupulariti);
@@ -56,37 +69,39 @@ const Carrucel = memo(() => {
         showPagination
         autoplayLoopKeepAnimation={true}
         data={data?.popularMovies ?? colors}
-        renderItem={({ item }) => (
-          <TouchableOpacity
-            activeOpacity={1}
-            onPress={() => navigatePreviwScreen(item)}
-            style={[styles.child]}
-          >
-            <View style={styles.swiperconted}>
-              <View style={styles.textContainer}>
-                <View style={styles.subtextConted}>
-                  <Text numberOfLines={1} style={styles.textItem}>
-                    {item?.title}
-                  </Text>
+        renderItem={({ item }) => {
+          return (
+            <TouchableOpacity
+              activeOpacity={1}
+              onPress={() => navigatePreviwScreen(item)}
+              style={[styles.child]}
+            >
+              <View style={styles.swiperconted}>
+                <View style={styles.textContainer}>
+                  <View style={styles.subtextConted}>
+                    <Text numberOfLines={1} style={styles.textItem}>
+                      {item?.title}
+                    </Text>
+                  </View>
+                  <View style={styles.subtextConted}>
+                    <Text style={styles.hd}>HD</Text>
+                    <Text style={styles.subtext}>Agora</Text>
+                  </View>
                 </View>
-                <View style={styles.subtextConted}>
-                  <Text style={styles.hd}>HD</Text>
-                  <Text style={styles.subtext}>Agora</Text>
-                </View>
+                <FastImage
+                  style={styles.img}
+                  source={{
+                    uri: decrypt(item.poster),
+                  }}
+                />
+                <LinearGradient
+                  colors={gradientCoors}
+                  style={styles.shadowContainer}
+                />
               </View>
-              <FastImage
-                style={styles.img}
-                source={{
-                  uri: item?.poster,
-                }}
-              />
-              <LinearGradient
-                colors={gradientCoors}
-                style={styles.shadowContainer}
-              />
-            </View>
-          </TouchableOpacity>
-        )}
+            </TouchableOpacity>
+          );
+        }}
       />
     </View>
   );
