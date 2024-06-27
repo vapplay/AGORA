@@ -14,8 +14,10 @@ export default function PrivacitiPoliticas({ route }: any) {
   const { setPolitical, setUser } = authState((state) => state);
 
   const goHomeScreen = () => {
-    setUser({ ...route.params.user });
+    setUser(route.params.user);
     setPolitical();
+    console.log(route.params.user);
+
   };
 
   return (

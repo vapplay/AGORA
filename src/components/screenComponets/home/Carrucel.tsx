@@ -33,16 +33,6 @@ let getPupulariti = gql`
 
 
 
-function decrypt(encryptedMessage: string) {
-  if (encryptedMessage) {
-    return encryptedMessage
-      ?.split("") // Convertir el mensaje en un array de caracteres
-      ?.map((char) => String.fromCharCode(char.charCodeAt(0) - 3)) // Deshacer el desplazamiento de 3 en ASCII
-      ?.join(""); // Convertir de nuevo a cadena
-  }
-  return ""
-}
-
 const Carrucel = memo(() => {
   let { data, loading } = useQuery(getPupulariti);
 
@@ -91,7 +81,7 @@ const Carrucel = memo(() => {
                 <FastImage
                   style={styles.img}
                   source={{
-                    uri: decrypt(item.poster),
+                    uri: "https://www6.cuevana3.ch" + item?.poster,
                   }}
                 />
                 <LinearGradient

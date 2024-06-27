@@ -37,7 +37,7 @@ export default function LoginScreen() {
 
   /// navigation fuction
   const navigationFuction = (user: any) => {
-    userNavigation.navigate("Privaciti", { user });
+
   };
 
   // error tralater
@@ -77,7 +77,10 @@ export default function LoginScreen() {
     authFunction(auth, userMail.trim(), userPoswar.trim())
       .then((userCredential) => {
         const user = userCredential.user;
-        navigationFuction(user);
+        if (user) {
+          userNavigation.navigate("Privaciti", { user: { email: user?.email } });
+
+        }
       })
       .catch((error) => {
         console.log(error.message);
@@ -116,7 +119,7 @@ export default function LoginScreen() {
 
         <View style={styles.inputContainer}>
           <TextInput
-            style={[styles.inputs , {marginBottom:30}]}
+            style={[styles.inputs, { marginBottom: 30 }]}
             placeholderTextColor="#ffffffbb"
             placeholder="Email"
             onChangeText={(Text) => setUserMail(Text)}
@@ -162,7 +165,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: "100%",
     marginBottom: 20,
-    zIndex:-2
+    zIndex: -2
   },
 
   welcomeText: {
@@ -217,9 +220,9 @@ const styles = StyleSheet.create({
   },
 
   bottoms: {
-    width:"60%",
+    width: "60%",
     flexDirection: "row",
     paddingTop: 30,
-    justifyContent:'space-evenly'
+    justifyContent: 'space-evenly'
   },
 });

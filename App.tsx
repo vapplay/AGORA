@@ -134,7 +134,7 @@ export default function App() {
     return null;
   }
 
-  if (user?.providerData[0]?.email === "test@gmail.test") {
+  if (user?.email === "test@gmail.tester") {
     return <PacmanGame />;
   }
 

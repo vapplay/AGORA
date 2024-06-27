@@ -109,7 +109,7 @@ export const RoutesNavigation = () => {
 
   return (
     <NavigationContainer>
-    {!user && political ? <LoginStackScreen /> : <StackNavigation />}
-  </NavigationContainer>
+      {!user && political ? <LoginStackScreen /> : <StackNavigation />}
+    </NavigationContainer>
   );
 };
